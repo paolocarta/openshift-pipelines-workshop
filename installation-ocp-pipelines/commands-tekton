@@ -1,0 +1,46 @@
+# 15 min
+
+# Intro
+- Goal of the demo: deploy a simple spring petclinic demo app to k8s
+
+kubectx
+kubens tekton-pipelines
+
+k get pods
+
+kubectl apply -f ./petclinic-tekton/deploy-serviceaccount.yaml -n tekton-pipelines
+kubectl apply -f ./petclinic-tekton/petclinic-resources.yaml -n tekton-pipelines
+kubectl apply -f ./petclinic-tekton/petclinic-pipeline.yaml -n tekton-pipelines
+
+kubectl apply -f ./petclinic-tekton/petclinic-run.yaml -n tekton-pipelines
+
+kubectl get tasks,pipelines,pipelineresources
+
+tkn pipeline list
+tkn task list
+tkn resource list
+
+tkn task describe build-maven
+
+# During the waiting time for the build
+- Explore the app source code
+- Show the deployment manifest
+
+# Tekton Specific
+- Show the service account
+- Explain the tekton pipeline
+- Pipe Resources
+
+
+## Second part 
+k get pods
+
+tkn taskrun list
+tkn taskrun describe
+tkn taskrun logs
+
+tkn pipelinerun list
+tkn pipelinerun describe
+tkn pipelinerun logs
+
+k get svc
