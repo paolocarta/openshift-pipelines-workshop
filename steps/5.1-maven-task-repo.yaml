@@ -6,22 +6,22 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: source
+      - name: task-repo
         type: git
   outputs:
     resources:
-      - name: source
+      - name: task-repo
         type: git
   steps:
     - name: maven-build
       image: maven:3.6.3-jdk-8-slim
-      workingDir: /workspace/source
+      workingDir: /workspace/task-repo
       command: ["mvn"]
       args:
         - "package"
     - name: ls
       image: registry.redhat.io/rhel7:latest
-      workingDir: /workspace/source
+      workingDir: /workspace/task-repo
       command: ["ls"]
       args:
         - "-l"

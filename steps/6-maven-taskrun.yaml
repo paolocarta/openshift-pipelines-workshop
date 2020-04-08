@@ -7,12 +7,12 @@ spec:
     name: maven-build
   inputs:
     resources:
-      - name: source
+      - name: task-repo
         resourceRef:
           name: spring-rest-git
   outputs:
     resources:
-      - name: source
+      - name: task-repo
         resourceRef:
           name: spring-rest-git
       

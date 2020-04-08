@@ -8,7 +8,7 @@ spec:
   - name: maven-repo
   inputs:
     resources:
-      - name: source
+      - name: task-repo 
         type: git
     # params:
     #   - name: directory
@@ -16,7 +16,7 @@ spec:
     #     default: /workspace/workspace
   outputs:
     resources:
-      - name: source
+      - name: task-repo 
         type: git
   steps:
     - name: maven-build
