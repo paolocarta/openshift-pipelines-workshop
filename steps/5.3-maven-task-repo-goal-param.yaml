@@ -8,10 +8,10 @@ spec:
     resources:
       - name: source
         type: git
-    # params:
-    #   - name: directory
-    #     description: Working directory parameter
-    #     default: /workspace/workspace
+    params:
+      - name: maven-goal
+        description: The maven goal
+        default: package
   outputs:
     resources:
       - name: source
@@ -22,7 +22,7 @@ spec:
       workingDir: /workspace/source
       command: ["mvn"]
       args:
-        - "package"
+        - "$(inputs.params.maven-goal)"
     - name: ls
       image: registry.redhat.io/rhel7:latest
       workingDir: /workspace/source
