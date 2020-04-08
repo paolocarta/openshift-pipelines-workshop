@@ -22,8 +22,7 @@ spec:
       workingDir: /workspace/source
       command: ["mvn"]
       args:
-        - "clean"
-        - "install"
+        - "verify"
     - name: ls
       image: registry.redhat.io/rhel7:latest
       workingDir: /workspace/source
