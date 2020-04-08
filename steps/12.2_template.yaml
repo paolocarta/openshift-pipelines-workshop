@@ -11,8 +11,20 @@ spec:
     default: master
   - name: git-repo-name
     description: The name of the deployment to be created / patched
-#
-  resourcetemplates:        
+  ###
+  resourcetemplates:   
+  - apiVersion: tekton.dev/v1alpha1
+    kind: PipelineResource
+    metadata:
+      name: $(params.git-repo-name)-git-repo
+    spec:
+      type: git
+      params:
+      - name: revision
+        value: $(params.git-revision)
+      - name: url
+        value: $(params.git-repo-url)
+  ###     
   - apiVersion: tekton.dev/v1alpha1
     kind: PipelineRun
     metadata:
