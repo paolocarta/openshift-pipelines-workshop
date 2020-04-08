@@ -1,15 +1,4 @@
-apiVersion: tekton.dev/v1alpha1
-kind: PipelineResource
-metadata:
-  name: skaffold-git
-spec:
-  type: git
-  params:
-    - name: revision
-      value: master
-    - name: url
-      value: https://github.com/paolocarta/spring-rest-tekton-pipeline.git
----
+###
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
@@ -35,3 +24,10 @@ spec:
       args:
         - "clean"
         - "install"
+    - name: ls
+      image: registry.redhat.io/rhel7:latest
+      workingDir: /workspace/source
+      command: ["ls"]
+      args:
+        - "-l"
+        - "target/"
