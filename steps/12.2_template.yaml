@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: tutorial-template
+spec:
+  params:
+  - name: git-repo-url
+    description: The git repository url
+  - name: git-revision
+    description: The git revision
+    default: master
+  - name: git-repo-name
+    description: The name of the deployment to be created / patched
+#
+  resourcetemplates:        
+  - apiVersion: tekton.dev/v1alpha1
+    kind: PipelineRun
+    metadata:
+      name: tutorial-pipeline-run-$(params.git-repo-name)-$(uid)
+    spec:
+      serviceAccountName: pipeline
+      pipelineRef:
+        name: tutorial-pipeline
+      resources:
+      - name: pipe-repo
+        resourceRef:
+          name: spring-rest-git
+      workspaces:
+        - name: maven-repo
+          persistentVolumeClaim:
+            claimName: maven-repo-pvc
