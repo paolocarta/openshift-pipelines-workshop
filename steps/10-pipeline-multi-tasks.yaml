@@ -1,0 +1,43 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: tutorial-pipeline
+spec:
+  workspaces:
+  - name: maven-repo
+  resources:
+    - name: pipe-repo
+      type: git
+  tasks:
+    - name: maven-compile
+      taskRef:
+        name: maven-build #7.2
+      params:
+        - name: maven-goal
+          value: compile
+      resources:
+        inputs:
+          - name: task-repo
+            resource: pipe-repo
+        outputs:
+          - name: task-repo
+            resource: pipe-repo
+      workspaces:
+        - name: maven-repo
+          workspace: maven-repo
+    - name: maven-test
+      taskRef:
+        name: maven-build #7.2
+      params:
+        - name: maven-goal
+          value: test
+      resources:
+        inputs:
+          - name: task-repo
+            resource: pipe-repo
+        outputs:
+          - name: task-repo
+            resource: pipe-repo
+      workspaces:
+        - name: maven-repo
+          workspace: maven-repo
