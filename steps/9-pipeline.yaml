@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: tutorial-pipeline
+spec:
+  resources:
+    - name: pipe-repo
+      type: git
+  tasks:
+    - name: maven-build
+      taskRef:
+        name: maven-build
+      params:
+        - name: pathToDockerFile
+          value: Dockerfile
+      resources:
+        inputs:
+          - name: task-repo
+            resource: pipe-repo
+        outputs:
+          - name: task-repo
+            resource: pipe-repo
