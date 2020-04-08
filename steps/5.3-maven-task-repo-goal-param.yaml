@@ -8,10 +8,12 @@ spec:
     resources:
       - name: task-repo
         type: git
+##################### New content ###################
     params:
       - name: maven-goal
         description: The maven goal
         default: package
+##################### New content ###################
   outputs:
     resources:
       - name: task-repo
@@ -22,7 +24,7 @@ spec:
       workingDir: /workspace/task-repo
       command: ["mvn"]
       args:
-        - "$(inputs.params.maven-goal)"
+        - "$(inputs.params.maven-goal)" ##################### New content ###################
     - name: ls
       image: registry.redhat.io/rhel7:latest
       workingDir: /workspace/task-repo

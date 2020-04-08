@@ -5,6 +5,7 @@ metadata:
 spec:
   taskRef:
     name: maven-build
+  # serviceAccountName: pipelines
   inputs:
     resources:
       - name: source
@@ -15,8 +16,10 @@ spec:
       - name: source
         resourceRef:
           name: spring-rest-git
+##################### New content ###################
   workspaces:
     - name: maven-repo
       persistentVolumeClaim:
         claimName: maven-repo-pvc
-      
+##################### New content ###################
+     

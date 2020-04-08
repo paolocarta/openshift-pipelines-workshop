@@ -4,6 +4,7 @@ kind: Task
 metadata:
   name: maven-build
 spec:
+##################### New content ###################
   inputs:
     resources:
       - name: task-repo
@@ -12,6 +13,7 @@ spec:
     resources:
       - name: task-repo
         type: git
+##################### New content ###################
   steps:
     - name: maven-build
       image: maven:3.6.3-jdk-8-slim
@@ -26,3 +28,4 @@ spec:
       args:
         - "-l"
         - "target/"
+##################### New content ###################
