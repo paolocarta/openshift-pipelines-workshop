@@ -3,16 +3,18 @@ kind: Pipeline
 metadata:
   name: tutorial-pipeline
 spec:
+  workspaces:
+  - name: maven-repo
   resources:
     - name: pipe-repo
       type: git
   tasks:
-    - name: maven-build
+    - name: maven-compile
       taskRef:
-        name: maven-build
+        name: maven-build #7.2
       params:
-        - name: pathToDockerFile
-          value: Dockerfile
+        - name: maven-goal
+          value: compile
       resources:
         inputs:
           - name: task-repo
@@ -20,3 +22,6 @@ spec:
         outputs:
           - name: task-repo
             resource: pipe-repo
+      workspaces:
+        - name: maven-repo
+          workspace: maven-repo
