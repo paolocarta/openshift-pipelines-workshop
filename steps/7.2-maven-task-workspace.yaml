@@ -4,16 +4,18 @@ kind: Task
 metadata:
   name: maven-build
 spec:
+##################### New content ###################
   workspaces:
   - name: maven-repo
+##################### New content ###################
   inputs:
     resources:
       - name: task-repo 
         type: git
-    # params:
-    #   - name: directory
-    #     description: Working directory parameter
-    #     default: /workspace/workspace
+    params:
+      - name: maven-goal
+        description: The maven goal
+        default: package
   outputs:
     resources:
       - name: task-repo 
@@ -21,15 +23,8 @@ spec:
   steps:
     - name: maven-build
       image: maven:3.6.3-jdk-8-slim
-      workingDir: /workspace/source
+      workingDir: /workspace/task-repo
       command: ["mvn"]
       args:
         - -Dmaven.repo.local=$(workspaces.maven-repo.path)
-        - "package"
-    - name: ls
-      image: registry.redhat.io/rhel7:latest
-      workingDir: /workspace/source
-      command: ["ls"]
-      args:
-        - "-l"
-        - "target/"
+        - "$(inputs.params.maven-goal)"
