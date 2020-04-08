@@ -15,7 +15,7 @@ spec:
     params:
       - name: maven-goal
         description: The maven goal
-        default: package
+        default: compile
   outputs:
     resources:
       - name: task-repo 

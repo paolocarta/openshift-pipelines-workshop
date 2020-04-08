@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1alpha1
+kind: TaskRun
+metadata:
+  name: maven-build-task-run-params
+spec:
+  taskRef:
+    name: maven-build
+  inputs:
+    resources:
+      - name: task-repo
+        resourceRef:
+          name: spring-rest-git
+    params:
+      - name: maven-goal
+        value: compile
+  outputs:
+    resources:
+      - name: task-repo
+        resourceRef:
+          name: spring-rest-git
+      

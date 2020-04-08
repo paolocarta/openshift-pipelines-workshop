@@ -12,7 +12,7 @@ spec:
     params:
       - name: maven-goal
         description: The maven goal
-        default: package
+        default: test
 ##################### New content ###################
   outputs:
     resources:

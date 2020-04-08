@@ -28,6 +28,8 @@ spec:
     - name: maven-test
       taskRef:
         name: maven-build #7.2
+      runAfter:           ## pay attention to this
+        - maven-compile
       params:
         - name: maven-goal
           value: test
