@@ -2,3 +2,5 @@
 tekton-petclinic-app/
 
 spring-rest/
+
+spring-rest-tekton-pipeline/
