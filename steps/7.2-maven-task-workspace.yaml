@@ -1,0 +1,35 @@
+###
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: maven-build
+spec:
+  workspaces:
+  - name: maven-repo
+  inputs:
+    resources:
+      - name: source
+        type: git
+    # params:
+    #   - name: directory
+    #     description: Working directory parameter
+    #     default: /workspace/workspace
+  outputs:
+    resources:
+      - name: source
+        type: git
+  steps:
+    - name: maven-build
+      image: maven:3.6.3-jdk-8-slim
+      workingDir: /workspace/source
+      command: ["mvn"]
+      args:
+        - -Dmaven.repo.local=$(workspaces.maven-repo.path)
+        - "package"
+    - name: ls
+      image: registry.redhat.io/rhel7:latest
+      workingDir: /workspace/source
+      command: ["ls"]
+      args:
+        - "-l"
+        - "target/"

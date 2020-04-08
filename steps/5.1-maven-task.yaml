@@ -22,7 +22,7 @@ spec:
       workingDir: /workspace/source
       command: ["mvn"]
       args:
-        - "verify"
+        - "package"
     - name: ls
       image: registry.redhat.io/rhel7:latest
       workingDir: /workspace/source

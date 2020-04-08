@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1alpha1
+kind: TaskRun
+metadata:
+  name: maven-build-task-run-workspace
+spec:
+  taskRef:
+    name: maven-build
+  inputs:
+    resources:
+      - name: source
+        resourceRef:
+          name: spring-rest-git
+  outputs:
+    resources:
+      - name: source
+        resourceRef:
+          name: spring-rest-git
+  workspaces:
+    - name: maven-repo
+      persistentVolumeClaim:
+        claimName: maven-repo-pvc
+      
