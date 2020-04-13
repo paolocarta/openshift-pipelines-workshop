@@ -1,7 +1,9 @@
-cd installation-ocp-pipelines
-chmod 777 ./install.sh
-./install.sh
-cd ..
+# cd installation-ocp-pipelines
+# chmod 777 ./install.sh
+# ./install.sh
+# cd ..
+
+oc new-project workshop-$GITHUB_USER
 
 if [ ! -d "spring-rest-tekton-pipeline" ] 
 then
