@@ -16,4 +16,4 @@ else
     git pull origin master
 fi
 
-oc project workshop
+# oc project workshop-$GITHUB_USER
