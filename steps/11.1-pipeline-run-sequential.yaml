@@ -3,7 +3,7 @@ kind: PipelineRun
 metadata:
   name: tutorial-pipeline-run-3
 spec:
-  # serviceAccountName: pipelines
+  # serviceAccountName: pipeline
   pipelineRef:
     name: tutorial-pipeline
   resources:

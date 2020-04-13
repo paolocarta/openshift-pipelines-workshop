@@ -5,7 +5,7 @@ metadata:
 spec:
   taskRef:
     name: maven-build
-  # serviceAccountName: pipelines
+  # serviceAccountName: pipeline
   inputs:
     resources:
       - name: task-repo
