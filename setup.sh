@@ -1,9 +1,12 @@
-# cd installation-ocp-pipelines
-# chmod 777 ./install.sh
-# ./install.sh
-# cd ..
 
-oc new-project workshop-$GITHUB_USER
+sed "s/REPLACEME/$GITHUB_USER/g" installation-ocp-pipelines/projects.input.yaml > installation-ocp-pipelines/projects.yaml
+
+cd installation-ocp-pipelines
+chmod 777 ./install.sh
+./install.sh
+cd ..
+
+# oc new-project workshop-$GITHUB_USER
 
 if [ ! -d "spring-rest-tekton-pipeline" ] 
 then
@@ -16,4 +19,4 @@ else
     git pull origin master
 fi
 
-# oc project workshop-$GITHUB_USER
+oc project workshop-$GITHUB_USER

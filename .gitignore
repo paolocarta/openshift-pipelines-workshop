@@ -4,3 +4,5 @@ tekton-petclinic-app/
 spring-rest/
 
 spring-rest-tekton-pipeline/
+
+installation-ocp-pipelines/projects.yaml
