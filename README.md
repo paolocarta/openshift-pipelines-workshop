@@ -19,6 +19,8 @@ export GITHUB_USER=your-username
 
 Fork this repo: [Spring Rest Tekton Pipeline](https://github.com/paolocarta/spring-rest-tekton-pipeline)
 
+Access the OCP4 Cluster with GitHub SSO and obtain a token for the oc cli.
+
 In order to install the Openshift Pipelines Operator and clone the sample repo execute this script:
 
 ```shell
@@ -44,7 +46,7 @@ The folder's name is "spring-rest-tekton-pipeline"
 
 If you want to test the pipeline triggering via webhooks you should register a webhook in your forked repo. The Webhook should point to your listener's route.
 
-In order to get the route execute this command in the namespace basic-spring-boot-cicd (You should be there by default):
+In order to get the route execute this command in the namespace basic-spring-boot-cicd-$GITHUB_USER (You should be there by default):
 
 ```shell
 oc get route webhook-listener -ojsonpath='{.spec.host}'
