@@ -2,6 +2,8 @@
 
 This is a workshop about Openshift Pipelines. 
 
+Self link: https://github.com/paolocarta/openshift-pipelines-workshop
+
 ## Prerequisites:
     - Openshift 4.x cluster
     - oc cli
