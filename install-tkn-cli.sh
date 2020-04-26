@@ -6,6 +6,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     sudo tar xvzf tkn_0.8.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
   
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    brew tap tektoncd/tools
-    brew install tektoncd/tools/tektoncd-cli        # Mac OSX
+    # brew tap tektoncd/tools
+    brew install tektoncd-cli        # Mac OSX
 fi
