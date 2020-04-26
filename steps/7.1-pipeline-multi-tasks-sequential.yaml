@@ -11,7 +11,7 @@ spec:
   tasks:
     - name: maven-compile
       taskRef:
-        name: maven-build #7.2
+        name: maven-build #4.2
       params:
         - name: maven-goal
           value: compile
@@ -27,7 +27,7 @@ spec:
           workspace: maven-repo
     - name: maven-test
       taskRef:
-        name: maven-build #7.2
+        name: maven-build #4.2
       runAfter:           ## pay attention to this
         - maven-compile
       params:
