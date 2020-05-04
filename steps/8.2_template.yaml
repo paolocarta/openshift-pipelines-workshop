@@ -36,7 +36,7 @@ spec:
       resources:
       - name: pipe-repo
         resourceRef:
-          name: spring-rest-git
+          name: $(params.git-repo-name)-git-repo
       workspaces:
         - name: maven-repo
           persistentVolumeClaim:
