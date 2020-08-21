@@ -5,5 +5,4 @@ items:
   apiVersion: v1
   metadata:
     name: workshop-REPLACEME
-    creationTimestam: null
   displayName: Tekton Workshop
