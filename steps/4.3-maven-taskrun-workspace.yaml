@@ -6,16 +6,17 @@ spec:
   taskRef:
     name: maven-build
   # serviceAccountName: pipeline
-  inputs:
-    resources:
+
+  resources:
+    inputs:
       - name: task-repo
         resourceRef:
           name: spring-rest-git
-  outputs:
-    resources:
+    outputs:
       - name: task-repo
         resourceRef:
           name: spring-rest-git
+          
 ##################### New content ###################
   workspaces:
     - name: maven-repo

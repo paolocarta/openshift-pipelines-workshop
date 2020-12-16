@@ -5,17 +5,17 @@ metadata:
 spec:
   taskRef:
     name: maven-build
-  inputs:
-    resources:
+  resources:
+    inputs:
       - name: task-repo
         resourceRef:
           name: spring-rest-git
-    params:
-      - name: maven-goal
-        value: compile
-  outputs:
-    resources:
+    outputs:
       - name: task-repo
         resourceRef:
           name: spring-rest-git
+  params:
+    - name: maven-goal
+      value: compile
+
       

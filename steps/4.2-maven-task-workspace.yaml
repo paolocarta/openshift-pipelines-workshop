@@ -4,22 +4,24 @@ kind: Task
 metadata:
   name: maven-build
 spec:
+
 ##################### New content ###################
   workspaces:
   - name: maven-repo
 ##################### New content ###################
-  inputs:
-    resources:
+
+  params:
+    - name: maven-goal
+      description: The maven goal
+      default: compile
+  resources:
+    inputs:
       - name: task-repo 
         type: git
-    params:
-      - name: maven-goal
-        description: The maven goal
-        default: compile
-  outputs:
-    resources:
+    outputs:
       - name: task-repo 
         type: git
+
   steps:
     - name: maven-build
       image: maven:3.6.3-jdk-8-slim
@@ -27,4 +29,4 @@ spec:
       command: ["mvn"]
       args:
         - -Dmaven.repo.local=$(workspaces.maven-repo.path)
-        - "$(inputs.params.maven-goal)"
+        - "$(params.maven-goal)"
