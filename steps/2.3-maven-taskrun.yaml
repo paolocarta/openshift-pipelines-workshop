@@ -1,17 +1,16 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1alpha1
 kind: TaskRun
 metadata:
   name: maven-build-task-run
 spec:
   taskRef:
     name: maven-build
-  inputs:
-    resources:
+  resources:
+    inputs:
       - name: task-repo
         resourceRef:
           name: spring-rest-git
-  outputs:
-    resources:
+    outputs:
       - name: task-repo
         resourceRef:
           name: spring-rest-git

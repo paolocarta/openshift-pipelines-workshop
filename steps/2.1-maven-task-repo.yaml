@@ -5,12 +5,11 @@ metadata:
   name: maven-build
 spec:
 ##################### New content ###################
-  inputs:
-    resources:
+  resources:
+    inputs:
       - name: task-repo
         type: git
-  outputs:
-    resources:
+    outputs:
       - name: task-repo
         type: git
 ##################### New content ###################
