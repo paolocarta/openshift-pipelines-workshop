@@ -6,7 +6,8 @@ spec:
   params:
     - name: person
       description: Person to greet
-      default: Paolo  
+      default: Paolo
+      type: string
   steps:
     - name: echo
       image: registry.redhat.io/rhel7:latest

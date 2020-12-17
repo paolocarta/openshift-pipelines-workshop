@@ -25,7 +25,7 @@ spec:
       - name: url
         value: $(params.git-repo-url)
   ###     
-  - apiVersion: tekton.dev/v1alpha1
+  - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
       name: tutorial-pipeline-run-$(params.git-repo-name)-$(uid)
